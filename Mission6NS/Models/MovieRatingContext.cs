@@ -11,7 +11,8 @@ namespace Mission6_shaw.Models
         {
         }
 
-        public DbSet<MovieRating> MovieData { get; set; }
+        public DbSet<MovieRating> Movies { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }
 //context file for the database setup

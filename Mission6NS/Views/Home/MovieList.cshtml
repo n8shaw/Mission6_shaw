@@ -1,0 +1,45 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<MovieRating>
+
+<table class="table table-bordered">
+    <thead class="fw-bold">
+        <tr>
+            <td>Title</td>
+            <td>Category</td>
+            <td>Year</td>
+            <td>Director</td>
+            <td>Rating</td>
+            <td>Edited</td>
+            <td>Lent To</td>
+            <td>Copied To Plex</td>
+            <td>Notes</td>
+        </tr>
+    </thead>
+    @foreach (var i in Model)
+    {
+        <tbody>
+
+            <tr>
+                <td>@i.Title</td>
+                <td>@(i.CategoryName != null ? i.CategoryName.CategoryName : "")</td><!--if a category was not chosen when adding the movie nothing will be displayed else display the category-->
+                <td>@i.Year</td>
+                <td>@i.Director</td>
+                <td>@i.Rating</td>
+                <td>@i.Edited</td>
+                <td>@i.LentTo</td>
+                <td>@i.CopiedToPlex</td>
+                <td>@i.Notes</td>
+                <td><a class="btn btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@i.MovieId">Edit</a></td>
+                <td><a class=" btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@i.MovieId">Delete</a></td>
+            </tr>
+
+
+        </tbody>
+    }
+
+</table>
